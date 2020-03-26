@@ -133,7 +133,7 @@ while a:
         print("\tДисперсія не однорідна при рівні значимості {:.2f}!".format(q))
         m += 1
 
-for i in range(4):
+for i in range(N):                                    #4 -кількість експериментів (рядків матриці планування), замість 4 можна написати N
     matrix.append(x_matrix[i] + y_matrix[i])
 print("\tМатриця з натуральних значень факторів")
 print("  X1 X2 X3 Y1  Y2  Y3 ")
@@ -170,7 +170,7 @@ t_3 = math.fabs(beta_3) / S_b
 Tt = Critical.get_student_value(f1 * f2, q)
 t_lst = [t_0, t_1, t_2, t_3]
 b_lst = [b0, b1, b2, b3]
-for i in range(4):
+for i in range(4):                
     if t_lst[i] > Tt:
         continue
     else:
