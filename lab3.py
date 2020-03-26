@@ -202,13 +202,18 @@ for i in range(3):
     if b_lst[i] == 0:
         del b_lst[i]
 
-d = len(b_lst)
-f4 = N - d
-S_2ad = m * ((yj1 - average_y[0]) ** 2 + (yj2 - average_y[1]) ** 2 + (yj3 - average_y[2]) ** 2 + (
-            yj4 - average_y[3]) ** 2) / f4
-Fp = S_2ad / S_2b
-Ft = Critical.get_fisher_value(f1 * f2, f4, q)
-if Fp > Ft:
-    print("Рівняння регресії неадекватно оригіналу при рівні значимості {:.2f}".format(q))
-else:
-    print("Рівняння регресії адекватно оригіналу при рівні значимості {:.2f}".format(q))
+while True:
+ d = len(b_lst)
+ f4 = N - d
+ S_2ad = m * ((yj1 - average_y[0]) ** 2 + (yj2 - average_y[1]) ** 2 + (yj3 - average_y[2]) ** 2 + (
+             yj4 - average_y[3]) ** 2) / f4
+ Fp = S_2ad / S_2b
+ Ft = Critical.get_fisher_value(f1 * f2, f4, q)
+ print(Fp)
+ print(Ft)
+ if Fp > Ft:
+     print("Рівняння регресії неадекватно оригіналу при рівні значимості {:.2f}".format(q))
+     m=m+1       #але все одно рівняння ніколи не буде адекватним, адже при збільшенні m Fp теж збільшується
+ else:
+     print("Рівняння регресії адекватно оригіналу при рівні значимості {:.2f}".format(q))
+     break         
